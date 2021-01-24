@@ -118,3 +118,33 @@ body {
     margin: 0 10px 0 0;
   }
 }
+.tags>li, .authors>li{
+  display: inline;
+}
+[class*="tag-size"] {
+  text-decoration: none;
+  
+}
+
+.tag-size-{
+  &5{
+    color: rgb(33, 190, 28);
+    font-size: 28px;
+  }
+  &4{
+    color: rgb(196, 40, 66);
+    font-size: 22px;
+  }  
+  &3{
+    color: blue;
+    font-size: 18px;
+  }
+  &2{
+    color: rgb(34, 34, 8);
+    font-size: 14px;
+  }
+  &1{
+    color: rgb(139, 20, 20);
+    font-size: 10px;
+  }
+}
