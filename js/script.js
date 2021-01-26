@@ -109,18 +109,18 @@ function generateAuthors(){
   const authWrapper = document.querySelector(optAuthorListSelector); 
   for(let article of articles) {
     const authorID = article.getAttribute('data-authors');
-    const author =  authorID.replace('#auth-', '');
-    const authorName = article.querySelector('.post-author>a').innerHTML;
-    const linkHTMLData = {id: authorID,class: author, title: authorName};
+    const authorClass =  authorID.replace('#auth-', '');
+    const author = authorClass.replace('_', ' '); //czy mozna to zrobic w jednej stalej?
+    const linkHTMLData = {id: authorID ,class: authorClass, title: author};
     const authHTML = templates.authCloudLink(linkHTMLData);
     const articleAuthor = article.querySelector('.post-author');
     const authArtHTML = templates.authLink(linkHTMLData);
     articleAuthor.insertAdjacentHTML('beforeend', authArtHTML);
-    if (!allAuth[author]) {
+    if (!allAuth[authorClass]) {
       authWrapper.insertAdjacentHTML('beforeend', authHTML);
-      allAuth[author] = 1;
+      allAuth[authorClass] = 1;
     } else {
-      allAuth[author]++;
+      allAuth[authorClass]++;
     }
   }
   const authParams = calculateTagsParams(allAuth);
@@ -128,6 +128,7 @@ function generateAuthors(){
     let authClass = calculateTagClass(allAuth[auth], authParams);
     let targetElement = document.querySelector(`.${auth}`);
     targetElement.classList.add(authClass);  
+    console.log(authClass);
   }
 }
 
