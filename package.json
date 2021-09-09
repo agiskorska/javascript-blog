@@ -32,6 +32,6 @@
   },
   "dependencies": {
     "browser-sync": "^2.26.13",
-    "html-validate": "^4.1.0"
+    "html-validate": "^4.14.0"
   }
 }
